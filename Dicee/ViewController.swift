@@ -10,9 +10,11 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    // create random integers
     var randomDiceIndex1 : Int = 0
     var randomDiceIndex2 : Int = 0
     
+    // create array and store images' names of dice
     let diceArray = ["dice1", "dice2", "dice3", "dice4", "dice5", "dice6"]
     
     @IBOutlet weak var diceImageView1: UIImageView!
@@ -20,10 +22,18 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        updateDiceImages()
+        
     }
 
     @IBAction func rollButtonPressed(_ sender: UIButton) {
+        
+        updateDiceImages()
+    }
+    
+    // function for changing dice images
+    func updateDiceImages() {
         randomDiceIndex1 = Int(arc4random_uniform(6))
         randomDiceIndex2 = Int(arc4random_uniform(6))
         
